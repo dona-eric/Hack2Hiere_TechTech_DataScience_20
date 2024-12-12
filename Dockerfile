@@ -5,15 +5,15 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copier les fichiers requis
-COPY requirements.txt .
+COPY requirements.txt ./requirements.txt
 COPY analyse_credit_risque.ipynb .
-COPY credit_scoring_model.joblib .
 
 # Installer les dépendances
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN pip install jupyter
 # Exposer le port pour l'API
-EXPOSE 8000
+EXPOSE 8888
 
 # Commande pour démarrer l'application
-CMD ["python", "analyse_credit_risque.ipynb"]
+CMD ["jupyter", "notebook", "analyse_credit_risque.ipynb", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
