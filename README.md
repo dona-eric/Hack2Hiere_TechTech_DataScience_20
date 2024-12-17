@@ -1,17 +1,15 @@
 ## Tests Techniques DataBeez
 ## Projet : Scoring de Risque avec German Credit Dataset
 
-Ce projet est une solution de bout en bout pour l'analyse, la modélisation, et la visualisation des scores de risque à partir du **German Credit Dataset**. Il inclut des étapes allant de la préparation des données au visualisations des données de modélisation. à partir de PowerBI
-L’intégration d’une API avec FastAPI et un tableau de bord interactif avec Streamlit.
+Projet : Credit Scoring
 
----
-
-## Objectifs du projet
-
-1. **Analyser les données :** Comprendre les caractéristiques du dataset et identifier les facteurs influençant le scoring de risque.
-2. **Modéliser le risque :** Construire un modèle prédictif capable de classifier les clients en fonction de leur risque.
-3. **Mettre en place une API :** Fournir un service RESTful pour prédire le score de risque sur de nouvelles données.
-4. **Visualiser les résultats :** Créer un tableau de bord interactif pour afficher les résultats de modélisation et permettre des explorations graphiques.
+   Données : https://www.google.com/url?q=https://b2s2j.r.sp1-brevo.net/mk/cl/f/sh/6rqJfgq8dINmOJvCzGV2lprJOBK/QNMAs_gFSitZ&source=gmail&ust=1734543143038000&usg=AOvVaw0_AJA62_OmDqX6u633Z_ET.
+    Tâches :
+   * Explorer les données pour chercher les plus grandes corrélations avec l'octroi ou non de crédit 
+   * Développer un modèle de prédiction de scoring crédit.
+   * Créer un Dockerfile pour le déploiement.
+   * Héberger le code sur GitHub ou GitLab.
+   * Créer un tableau de bord interactif via Power BI ou Looker Studio pour visualiser les résultats du modèle.
 
 ---
 
