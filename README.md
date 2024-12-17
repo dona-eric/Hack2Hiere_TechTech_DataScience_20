@@ -139,6 +139,7 @@ Un tableau de bord interactif a été conçu pour :
 
 ```
 Test_Techniques_DATABEEZ/
+|-riskenv          #environnement virtuel utiliseé
    |-Analyse_risque_credit/
        |-analyse_credit_risque.ipynb # notebook pour l'analyse.
    |-German_Data_Credit/
