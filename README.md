@@ -139,21 +139,21 @@ Un tableau de bord interactif a été conçu pour :
 
 ```
 Test_Techniques_DATABEEZ/
-|-Analyse_risque_credit/
-    |-analyse_credit_risque.ipynb # notebook pour l'analyse.
-|-German_Data_Credit/
-    |-predictions        #les données de predictions
-    |-Train               #les données d'entrainement
-    |-Test               #les données de test
-|-models_credit_risque/
-    -pipeline_transformers.pkl  #pour transformer les données
-    - final_model_pipeline.pkl  #  le pipeline pour la preparation des données et la modelisation
-|-ScoringApp                   #pour l'api et interface streamlit
-    |— main.py               # API FastAPI
-    |— dashboard.py          # Tableau de bord Streamlit
-    # Données prédites sauvegardées
-|— requirements.txt      # Dépendances Python
-|-Dockerfile                #fichier docker pour le deploiement du modèle
+   |-Analyse_risque_credit/
+       |-analyse_credit_risque.ipynb # notebook pour l'analyse.
+   |-German_Data_Credit/
+       |-predictions        #les données de predictions
+       |-Train               #les données d'entrainement
+       |-Test               #les données de test
+   |-models_credit_risque/
+       -pipeline_transformers.pkl  #pour transformer les données
+       - final_model_pipeline.pkl  #  le pipeline pour la preparation des données et la modelisation
+   |-ScoringApp                   #pour l'api et interface streamlit
+       |— main.py               # API FastAPI
+       |— dashboard.py          # Tableau de bord Streamlit
+       # Données prédites sauvegardées
+   |— requirements.txt      # Dépendances Python
+   |-Dockerfile                #fichier docker pour le deploiement du modèle
 ```
 
 ---
