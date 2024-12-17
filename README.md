@@ -3,13 +3,13 @@
 
 Projet : Credit Scoring
 
-   Données : https://www.google.com/url?q=https://b2s2j.r.sp1-brevo.net/mk/cl/f/sh/6rqJfgq8dINmOJvCzGV2lprJOBK/QNMAs_gFSitZ&source=gmail&ust=1734543143038000&usg=AOvVaw0_AJA62_OmDqX6u633Z_ET.
-    Tâches :
-   * Explorer les données pour chercher les plus grandes corrélations avec l'octroi ou non de crédit 
-   * Développer un modèle de prédiction de scoring crédit.
-   * Créer un Dockerfile pour le déploiement.
-   * Héberger le code sur GitHub ou GitLab.
-   * Créer un tableau de bord interactif via Power BI ou Looker Studio pour visualiser les résultats du modèle.
+   ## Données : https://www.google.com/url?q=https://b2s2j.r.sp1-brevo.net/mk/cl/f/sh/6rqJfgq8dINmOJvCzGV2lprJOBK/QNMAs_gFSitZ&source=gmail&ust=1734543143038000&usg=AOvVaw0_AJA62_OmDqX6u633Z_ET.
+   ## Tâches :
+      * Explorer les données pour chercher les plus grandes corrélations avec l'octroi ou non de crédit 
+      * Développer un modèle de prédiction de scoring crédit.
+      * Créer un Dockerfile pour le déploiement.
+      * Héberger le code sur GitHub ou GitLab.
+      * Créer un tableau de bord interactif via Power BI ou Looker Studio pour visualiser les résultats du modèle.
 
 ---
 
