@@ -6,6 +6,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+@st.cache_data()
 ## url vers l'api
 URL_API= "http://127.0.0.1:8000/"
 st.set_page_config(page_title='ScoringApp', page_icon=":shark", layout='wide', initial_sidebar_state="expanded")
@@ -19,7 +20,14 @@ if menu =="Home":
     st.title(message_welcome)
     
 elif menu =="Predictions":
-    st.title('DASHBORD')
+    
+    st.title(" Niveau de risque ? Probabilité ? Vous etes ouverts à tous !")
+    
+    st.write(f"""  #### Etes vous dans une situation dont vous ne savez pas si votre non remboursement de crédit bancaire sera pénal ou non ?
+             
+            ### Eh bien ! C'est le moment de le savoir pour prendre les dispositions nécéssaires. """)
+            
+    
     st.sidebar.header("Entrer de nouvelles données")
     data_scoring = {
     "Age": st.sidebar.number_input("Âge", min_value=18, max_value=100, value=30),
@@ -38,14 +46,55 @@ elif menu =="Predictions":
             if response.status_code == 200:
                 prediction = pd.DataFrame(response.json())
             st.write("### Résultat de la Prédiction", prediction)
-        #else:
-        #    st.error("Erreur lors de la prédiction.")
-        if st.sidebar.button("Visualisations"):
-            response = requests.get(f'{URL_API}/stats', json=data_scoring)
-            if response.status_code==200:
-                visualiation = response.json()
-                st.write('### Visualisations:', visualiation)
     except Exception as e:
         st.error(f'Veuillez verifier les données entrées {str(e)}')
-    
-    
+
+elif menu=='Visualisations':
+
+    st.title("Tableau de bord des Résultats de Modélisation")
+    try :
+        # Section pour uploader le fichier CSV combiné
+        uploaded_file = st.file_uploader("Chargez votre fichier au format CSV :", type=["csv"])
+
+        if uploaded_file:
+            # Envoi des données vers l'API
+            with st.spinner("Chargement du fichier ..."):
+                response = requests.post(f"{URL_API}/stats", files={"file": uploaded_file})
+                if response.status_code == 200:
+                    response_data = response.json()
+                    if response_data["status"] == "success":
+                        data= pd.DataFrame(response_data["data"])
+                        st.success("Données chargées avec succès !")
+                        
+                        ### pour la classe normale
+                        
+                        fig = px.histogram(data, x="Normal", color="Predicted", 
+                                        title="Distribution du risque normale par Classe")
+                        st.plotly_chart(fig)
+                        
+                        
+                        fig = px.pie(data, names="Normal", color="Predicted",
+                                     title="Répartition des Classes Normales")
+                        st.plotly_chart(fig)
+                        
+                        # pour les probabilites et les classes predictes
+                        fig = px.histogram(data, x="Probability", color="Predicted", 
+                                        title="Distribution des Probabilités par Classe")
+                        st.plotly_chart(fig)
+
+                        # Pie chart pour les prédictions
+                        #st.write("## Répartition des Prédictions :")
+                        fig = px.pie(data, names="Predicted", title="Répartition des Classes Prédictes")
+                        st.plotly_chart(fig)
+                        
+                      # Création du graphique avec Plotly
+                        fig = px.box(data, x='Normal', y='Probability', color='Predicted', color_discrete_sequence=px.colors.qualitative.Set3,
+                                     title="Répartition entre le risque normal et la probabilité ")
+
+                        # Afficher dans Streamlit
+                        st.plotly_chart(fig)
+
+                    else:
+                        st.error(f"Erreur : {response_data['message']}")
+    except Exception as e:
+        st.error(f"Échec de la connexion à l'API. Code HTTP : {response.status_code}")
