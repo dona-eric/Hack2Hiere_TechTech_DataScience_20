@@ -1,8 +1,8 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException,UploadFile, File
 from pydantic import BaseModel, Field
 import pandas as pd
 import requests
-import joblib, pickle
+import joblib, pickle, io
 from fastapi.responses import JSONResponse
 
 app = FastAPI()
@@ -49,10 +49,16 @@ def predict(data: DataScoring):
 
 
 #routes pour les visualisations
-@app.get("/stats")
-def get_results():
+
+@app.post("/stats")
+async def load_file(file: UploadFile = File(...)):
     try:
-        df = pd.read_csv("prediction_df.csv")
-        return JSONResponse(content=df.to_dict(orient="records"))
-    except FileNotFoundError:
-        return JSONResponse(content={"error": "No results available."}, status_code=404)
+        # Lire le fichier CSV
+        content = await file.read()
+        data = pd.read_csv(io.BytesIO(content))
+        
+        # Convertir en JSON
+        data_json = data.to_dict(orient="records")
+        return {"status": "success", "data": data_json}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
