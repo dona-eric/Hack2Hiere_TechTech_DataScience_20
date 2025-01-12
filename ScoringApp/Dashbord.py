@@ -8,7 +8,7 @@ import seaborn as sns
 
 st.cache_data()
 ## url vers l'api
-URL_API= "http://127.0.0.1:8000/"
+URL_API= "https://api-risk.onrender.com/"
 st.set_page_config(page_title='ScoringApp', page_icon=":shark", layout='wide', initial_sidebar_state="expanded")
 
 st.sidebar.title('Menu')
@@ -102,4 +102,4 @@ elif menu=='Visualisations':
                     else:
                         st.error(f"Erreur : {response_data['message']}")
     except Exception as e:
-        st.error(f"Échec de la connexion à l'API. Code HTTP : {response.status_code}")
+        st.error(f"Échec de la connexion à l'API. Code HTTP")
