@@ -2,16 +2,22 @@ from fastapi import FastAPI, HTTPException,UploadFile, File
 from pydantic import BaseModel, Field
 import pandas as pd
 import requests
-import joblib, pickle, io
+import joblib, pickle, io, os
 from fastapi.responses import JSONResponse
 
 app = FastAPI()
 
 ### load the models
-transformer = joblib.load('../models_credit_risque/pipeline_transformer.pkl')
-model = joblib.load('../models_credit_risque/final_model_pipeline.pkl')
-# create a class of database who will be used to print the results of prediction about streamlit interfaceing
+#transformer = joblib.load('../models_credit_risque/pipeline_transformer.pkl')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "models_credit_risque", "final_model_pipeline.pkl")
 
+try:
+    model = joblib.load(model_path)
+    print("Modèle chargé avec succès.")
+except Exception as e:
+    print(f"Erreur lors du chargement du modèle : {e}")
+    model = None
 class DataScoring(BaseModel):
     Age:int
     Sex: str

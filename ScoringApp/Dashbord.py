@@ -6,7 +6,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-@st.cache_data()
+st.cache_data()
 ## url vers l'api
 URL_API= "http://127.0.0.1:8000/"
 st.set_page_config(page_title='ScoringApp', page_icon=":shark", layout='wide', initial_sidebar_state="expanded")
@@ -54,7 +54,7 @@ elif menu=='Visualisations':
     st.title("Tableau de bord des Résultats de Modélisation")
     try :
         # Section pour uploader le fichier CSV combiné
-        uploaded_file = st.file_uploader("Chargez votre fichier au format CSV :", type=["csv"])
+        uploaded_file = st.file_uploader("Chargez votre le fichier de prédiction au format CSV :", type=["csv"])
 
         if uploaded_file:
             # Envoi des données vers l'API
@@ -93,6 +93,11 @@ elif menu=='Visualisations':
 
                         # Afficher dans Streamlit
                         st.plotly_chart(fig)
+                        
+                        figure = px.scatter(data, x='Normal', y='Predicted',
+                                            title='Nuages de point entre les données normales et prédites',
+                                            color='Predicted', color_discrete_sequence=px.colors.qualitative.Set3)
+                        st.plotly_chart(figure)
 
                     else:
                         st.error(f"Erreur : {response_data['message']}")
