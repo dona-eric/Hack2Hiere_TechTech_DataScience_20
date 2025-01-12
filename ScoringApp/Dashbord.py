@@ -22,6 +22,8 @@ if menu =="Home":
 elif menu =="Predictions":
     
     st.title(" Niveau de risque ? Probabilité ? Vous etes ouverts à tous !")
+    st.image("predit.jpeg", caption="Evaluation risque",channels="RGB", use_container_width=True)    
+
     
     st.write(f"""  #### Etes vous dans une situation dont vous ne savez pas si votre non remboursement de crédit bancaire sera pénal ou non ?
              
