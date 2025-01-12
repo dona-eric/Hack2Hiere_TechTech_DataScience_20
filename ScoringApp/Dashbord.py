@@ -46,6 +46,7 @@ elif menu =="Predictions":
             if response.status_code == 200:
                 prediction = pd.DataFrame(response.json())
             st.write("### Résultat de la Prédiction", prediction)
+            st.write('Le risque de score est : ', prediction[prediction])
     except Exception as e:
         st.error(f'Veuillez verifier les données entrées {str(e)}')
 
