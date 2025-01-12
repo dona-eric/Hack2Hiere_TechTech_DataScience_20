@@ -8,7 +8,7 @@ import seaborn as sns
 
 ## url vers l'api
 URL_API= "https://api-risk.onrender.com/"
-st.set_page_config(page_title='ScoringApp', page_icon=":shark", layout='wide', initial_sidebar_state="expanded")
+st.set_page_config(page_title='ScoringApp', page_icon="images.jpeg", layout='wide', initial_sidebar_state="expanded")
 
 st.sidebar.title('Menu')
 menu = st.sidebar.radio("Go to :", ["Home", "Predictions", "Visualisations"])
