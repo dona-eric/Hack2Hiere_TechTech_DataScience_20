@@ -172,6 +172,10 @@ Test_Techniques_DATABEEZ/
 
 ---
 
+## Deploiement :
+Voulez-vous essayer l'api ? Un seul clic sur le lien suivant et vous etes dans le monde des données: [API-Risk-score](https://api-risk.onrender.com/predict)
+
+Et l'application streamlit ? :[ScoringApp](https://risk-score.streamlit.app/)
 ## Conclusion
 
 Ce projet fournit une solution complète pour le scoring de risque, incluant un dashbord interactif et dynamique des résultats de la modélisation. Il peut être étendu pour inclure davantage de types de modèles ou des analyses approfondies sur des données supplémentaires.

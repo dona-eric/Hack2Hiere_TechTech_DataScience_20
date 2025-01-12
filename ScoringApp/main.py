@@ -4,6 +4,9 @@ import pandas as pd
 import requests
 import joblib, pickle, io, os
 from fastapi.responses import JSONResponse
+from time import time
+from fastapi.middleware import Middleware
+
 
 app = FastAPI()
 
@@ -33,7 +36,7 @@ class DataScoring(BaseModel):
     class Config:
         alias_generator = lambda field: field.replace("_", " ")
         allow_population_by_name = True
-        
+              
 @app.post('/predict')
 def predict(data: DataScoring):
     
@@ -68,3 +71,12 @@ async def load_file(file: UploadFile = File(...)):
         return {"status": "success", "data": data_json}
     except Exception as e:
         return {"status": "error", "message": str(e)}
+
+
+@app.middleware("http")
+async def log_request_time(request, call_next):
+    start_time = time()
+    response = await call_next(request)
+    process_time = time() - start_time
+    print(f"Request processed in {process_time:.2f} seconds")
+    return response

@@ -6,13 +6,13 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.cache_data()
 ## url vers l'api
 URL_API= "https://api-risk.onrender.com/"
 st.set_page_config(page_title='ScoringApp', page_icon=":shark", layout='wide', initial_sidebar_state="expanded")
 
 st.sidebar.title('Menu')
 menu = st.sidebar.radio("Go to :", ["Home", "Predictions", "Visualisations"])
+
 
 if menu =="Home":
     message_welcome = f"""
