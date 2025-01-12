@@ -18,7 +18,7 @@ if menu =="Home":
     message_welcome = f"""
     You're welcome at ScoringApp !"""
     st.title(message_welcome)
-    
+    st.image("images.jpeg", caption="Cote de credit")    
 elif menu =="Predictions":
     
     st.title(" Niveau de risque ? Probabilité ? Vous etes ouverts à tous !")
