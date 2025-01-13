@@ -4,5 +4,5 @@ Riskenv
 DashbordDataBeez.pbix
 .vscode
 .venv
-#images
+images
 ../Analyse_risque_Credit/databeez.ipynb
