@@ -53,9 +53,10 @@ elif menu =="Predictions":
         st.error(f'Veuillez verifier les données entrées {str(e)}')
 
 elif menu=='Visualisations':
-    st.image("visualizer.jpeg", caption="Risque de creddit",channels="RGB", use_container_width=True)    
+    
 
     st.title("Résultats de Modélisation")
+    st.image("visualizer.jpeg", caption="Risque de creddit",channels="RGB", use_container_width=True)    
     try :
         # Section pour uploader le fichier CSV combiné
         uploaded_file = st.file_uploader("Chargez votre le fichier de prédiction au format CSV :", type=["csv"])
