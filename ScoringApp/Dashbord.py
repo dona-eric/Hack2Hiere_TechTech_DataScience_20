@@ -8,7 +8,7 @@ import seaborn as sns
 
 ## url vers l'api
 URL_API= "https://api-risk.onrender.com/"
-st.set_page_config(page_title='ScoringApp', page_icon="images.jpeg", layout='wide', initial_sidebar_state="expanded")
+st.set_page_config(page_title='ScoringApp', page_icon="../images/images.jpeg", layout='wide', initial_sidebar_state="expanded")
 
 st.sidebar.title('Menu')
 menu = st.sidebar.radio("Go to :", ["Home", "Predictions", "Visualisations"])
@@ -18,11 +18,11 @@ if menu =="Home":
     message_welcome = f"""
     You're welcome at ScoringApp !"""
     st.title(message_welcome)
-    st.image("risque.png", caption="Risque de creddit",channels="RGB", use_container_width=True)    
+    st.image("../images/risque.png", caption="Risque de creddit",channels="RGB", use_container_width=True)    
 elif menu =="Predictions":
     
     st.title(" Niveau de risque ? Probabilité ? Vous etes ouverts à tous !")
-    st.image("data.jpeg", caption="Evaluation risque",channels="RGB", use_container_width=True, output_format="auto")    
+    st.image("../images/data.jpeg", caption="Evaluation risque",channels="RGB", use_container_width=True, output_format="auto")    
 
     
     st.write(f"""  #### Etes vous dans une situation dont vous ne savez pas si votre non remboursement de crédit bancaire sera pénal ou non ?
@@ -56,7 +56,7 @@ elif menu=='Visualisations':
     
 
     st.title("Résultats de Modélisation")
-    st.image("visualizer.jpeg", caption="Risque de creddit",channels="RGB", use_container_width=True)    
+    st.image("../images/visualizer.jpeg", caption="Risque de creddit",channels="RGB", use_container_width=True)    
     try :
         # Section pour uploader le fichier CSV combiné
         uploaded_file = st.file_uploader("Chargez votre le fichier de prédiction au format CSV :", type=["csv"])
