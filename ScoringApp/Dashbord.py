@@ -108,3 +108,6 @@ elif menu=='Visualisations':
                         st.error(f"Erreur : {response_data['message']}")
     except Exception as e:
         st.error(f"Échec de la connexion à l'API. Code HTTP")
+
+
+st.subheader("Auteur: Eric Dona KOULODJI")
